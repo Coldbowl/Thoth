@@ -36,20 +36,19 @@ int main(int argc, char* argv[]) {
             return 1;
         }
 
-        if (strstr(argv[2], ".") == NULL || strstr(argv[2], ",") == NULL) { // strstr returns a pointer to where the substring is found
+        if (strstr(argv[2], ".") != NULL || strstr(argv[2], ",") != NULL) { // strstr returns a pointer to where the substring is found
             printf("Whole numbers only in base conversion. Thoth saves his wisdom on fractions for matters incomprehensible to the mortal mind.\n");
-            return 1;
-        }
-
-        const long base = strtol(argv[3], &p1, 10);
-
-            if (base < 2 || base > 16) {
-            printf("Thoth recognises only bases 2 through 16. Do not test his patience.\n");
             return 1;
         }
 
         const long from = strtol(argv[3], &p1, 10);
         const long to = strtol(argv[4], &p2, 10);
+
+        if (from < 2 || from > 16 || to < 2 || to > 16) {
+            printf("Thoth recognises only bases 2 through 16. Do not test his patience.\n");
+            return 1;
+        }
+
         const long number = strtol(argv[2], &p3, (int)from);
 
         if (p3 == argv[2]) {
