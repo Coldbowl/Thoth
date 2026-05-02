@@ -3,7 +3,7 @@
 #include <string.h>
 
 void to_base(long number, const int base, char* result) {
-    const char digits[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/";
+    const char digits[] = "0123456789ABCDEF";
     char temp[64];
     int i = 0;
 
@@ -43,8 +43,8 @@ int main(int argc, char* argv[]) {
 
         const long base = strtol(argv[3], &p1, 10);
 
-        if (base < 2 || base > 64) {
-            printf("Thoth recognises only bases 2 through 64. Do not test his patience.\n");
+            if (base < 2 || base > 16) {
+            printf("Thoth recognises only bases 2 through 16. Do not test his patience.\n");
             return 1;
         }
 
